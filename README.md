@@ -1,8 +1,6 @@
-# Materialize::Association::Autocomplete
+# Materialize Association Autocomplete
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/materialize/association/autocomplete`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Provides autocomplete for associations, using materialize-sass and simple_form.
 
 ## Installation
 
@@ -22,7 +20,17 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Instead of uses `= f.associaton :model_name`, changes for `= f.input :model_name, as: :autocomplete`.
+
+```ruby
+= simple_form_for(@child_model) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .row
+    .col.s10.input-field
+      = f.input :parent_model_name, as: :autocomplete
+```
 
 ## Development
 
@@ -32,12 +40,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/materialize-association-autocomplete. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/materialize-association-autocomplete/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/materialize-association-autocomplete. This project is intended to be a safe, welcoming space for collaboration.
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the Materialize::Association::Autocomplete project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/materialize-association-autocomplete/blob/master/CODE_OF_CONDUCT.md).
+The gem is available as open source under the terms of the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html).
